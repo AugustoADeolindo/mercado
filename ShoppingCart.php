@@ -1,25 +1,25 @@
 <?php
 require_once './Product.php';
-
+require_once './Costumer.php';
 
 class ShoppingCart
 {
-    protected array $items = [];
+    protected array $cart = [];
 
-    public function addItem(Product $product, int $quantity): void
+    public function addItem( array $product, int $quantity): void
     {
-        $this->items[] = [
+        $this->cart[] = [
             'product' => $product,
             'quantity' => $quantity
         ];
     }
 
-    public function calculateTotal(): float
+    public function calculateTotal(): void
     {
         $total = 0;
-        foreach ($this->items as $item) {
-            $total += $item['product']->getPrice() * $item['quantity'];
+        foreach ($this->cart as $item) {
+            $total += $item['product']['price'] * $item['quantity'];
         }
-        return $total;
+        echo "\nTotal Amount: $" . number_format($total, 2) . "\n";
     }
 }

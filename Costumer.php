@@ -1,7 +1,7 @@
 <?php
 require_once './ShoppingCart.php';
 
-class Costumer extends ShoppingCart
+class Costumer
 {
     public static array $costumers = [];
 
@@ -22,5 +22,12 @@ class Costumer extends ShoppingCart
     
     public static function addCostumer(Costumer $costumer){
         self::$costumers[] = $costumer;
+    }
+
+    public static function getCostumers(): void {
+        echo "\nCOSTUMERS LIST\n";
+        foreach(Costumer::$costumers as $index => $costumer){
+            echo "({$index})Name: " . $costumer->getName() . " | CPF: " . $costumer->getCpf() . "\n";
+        }
     }
 }
