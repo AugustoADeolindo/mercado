@@ -72,4 +72,4 @@ Este projeto é um ponto de partida. Os próximos passos para evoluí-lo e prati
 
 -----
 
-Feito com ❤️ para praticar POO\!
+Feito para praticar e consolidar conceitos de POO em PHP\!
