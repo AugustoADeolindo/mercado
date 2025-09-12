@@ -30,7 +30,7 @@ O objetivo principal deste projeto é simular, de forma simplificada, um sistema
 2.  **Clone o repositório**:
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/AugustoADeolindo/mercado.git
     ```
 
 3.  **Navegue até a pasta do projeto**:
