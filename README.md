@@ -36,7 +36,7 @@ O objetivo principal deste projeto é simular, de forma simplificada, um sistema
 3.  **Navegue até a pasta do projeto**:
 
     ```bash
-    cd seu-repositorio
+    cd AugustoADeolindo/mercado
     ```
 
 4.  **Execute o sistema**:
