@@ -1,6 +1,6 @@
 <?php
 // Pega parâmetros da URL
-$controller = $_GET['controller'] ?? 'home';
+$controller = $_GET['controller'] ?? 'Produto';
 $action     = $_GET['action'] ?? 'index';
 
 // Nome da classe e caminho do arquivo

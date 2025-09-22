@@ -12,14 +12,27 @@ class Produto
         return self::$produtos;
     }
 
-    public static function find($id)
+    // public static function find($id)
+    // {
+    //     foreach (self::$produtos as $produto) {
+    //         if ($produto["id"] == $id) {
+    //             return $produto;
+    //         }
+    //     }
+    //     return null;
+    // }
+
+    public static function edit($id, $newNome, $newPreco)
     {
-        foreach (self::$produtos as $produto) {
-            if ($produto["id"] == $id) {
-                return $produto;
+        foreach (self::$produtos as $chave => $produto) {
+            if ($produto['id'] == $id) {
+                self::$produtos[$chave] = ["id" => $id, "nome" => $newNome, "preco" => $newPreco];
+                echo "Produto Atualizado!";
+                break;
+            } else {
+                echo "Produto não encontrado";
             }
         }
-        return null;
     }
 
     public static function addProduto($nome, $preco)
@@ -29,5 +42,17 @@ class Produto
             "nome" => $nome,
             "preco" => $preco
         ];
+    }
+
+    public static function deleteItem($id)
+    {
+        foreach (self::$produtos as $chave => $produto) {
+            if ($produto['id'] == $id) {
+                unset(self::$produto[$chave]);
+                break;
+            }
+        }
+
+        self::$produtos = array_values(self::$produtos);
     }
 }

@@ -1,5 +1,5 @@
 <h1>Lista de Produtos</h1>
-<a href="index.php?controller=produto&action=create">Adicionar Produto</a>
+<a href="index.php?ProdutoController=produto&action=create">Adicionar Produto</a>
 
 <ul>
     <?php foreach ($produtos as $p): ?>
