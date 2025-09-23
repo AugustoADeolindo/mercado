@@ -1,5 +1,6 @@
 <?php
 require_once "app/models/Product.php";
+require_once "./app/config/connection.php";
 
 class ProdutoController
 {
@@ -16,11 +17,15 @@ class ProdutoController
 
     public function store()
     {
+        $pdo = getDbConnection();
         $nome = $_POST['nome'] ?? null;
         $preco = $_POST['preco'] ?? null;
 
-        Produto::addProduto($nome, $preco);
-        echo "Inserção: $nome - R$ $preco <br>";
+        // SUBSTITUI a vírgula por um ponto
+        $newPreco = str_replace(',', '.', $preco);
+
+        Produto::addProduto($pdo, $nome, $newPreco);
+
         echo "<a href='index.php?controller=produto&action=index'>Voltar para lista</a>";
     }
 

@@ -1,5 +1,6 @@
 <?php
-// Pega parâmetros da URL
+require_once "./app/config/connection.php";
+
 $controller = $_GET['controller'] ?? 'Produto';
 $action     = $_GET['action'] ?? 'index';
 

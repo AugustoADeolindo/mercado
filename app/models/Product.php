@@ -12,16 +12,6 @@ class Produto
         return self::$produtos;
     }
 
-    // public static function find($id)
-    // {
-    //     foreach (self::$produtos as $produto) {
-    //         if ($produto["id"] == $id) {
-    //             return $produto;
-    //         }
-    //     }
-    //     return null;
-    // }
-
     public static function edit($id, $newNome, $newPreco)
     {
         foreach (self::$produtos as $chave => $produto) {
@@ -35,13 +25,18 @@ class Produto
         }
     }
 
-    public static function addProduto($nome, $preco)
+    public static function addProduto($pdo, $nome, $preco)
     {
-        self::$produtos[] = [
-            "id" => (count(self::$produtos) + 1),
-            "nome" => $nome,
-            "preco" => $preco
-        ];
+        $sql = "INSERT INTO produtos (nome,preco) VALUES (?,?)";
+
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$nome, $preco]);
+
+            echo "Produto '{$nome}' inserido com sucesso!";
+        } catch (PDOException $e) {
+            die("Erro ao cadastrar o produto: " . $e->getMessage());
+        }
     }
 
     public static function deleteItem($id)
