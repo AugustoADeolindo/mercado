@@ -1,23 +1,82 @@
-<?php
-require_once "./app/config/connection.php";
+<!DOCTYPE html>
+<html lang="pt-br">
 
-$controller = $_GET['controller'] ?? 'Produto';
-$action     = $_GET['action'] ?? 'index';
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/imask"></script>
+    <title>Liva</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
 
-// Nome da classe e caminho do arquivo
-$controllerName = ucfirst($controller) . "Controller";
-$controllerFile = "app/controllers/$controllerName.php";
+<body>
+    <section id="home">
+        <header>
+            <div class="header-container">
+                <div id="logotipo-container">
+                    <img class="logotipo" src="./assets/logotipo.png" alt="">
+                </div>
+                <div class="options-container">
+                    <a href="#form">Cadastrar Itens</a>
+                    <a href="./pages/produtos.php">Ver Produtos</a>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="content-infos">
+                <h1>Adicione <span>produtos</span> ao estoque</h1>
+                <a href="#form">Cadastrar</a>
+                <a href="./pages/produtos.php">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+    <section id="form">
+        <div class="form-container">
+            <h1>Cadastro de Produtos </h1>
+            <div class="geral-form">
+                <form action="./scripts/save.php" method="post" autocomplete="off">
+                    <div class="top-form">
+                        <div class="left-form">
+                            <div class="item">
+                                <label for="nome">Nome do Produto</label>
+                                <input type="text" required name="nome" id="titulo">
+                            </div>
+                            <div class="item">
+                                <label for="preco">Preço</label>
+                                <input type="number" required name="preco" id="preco">
+                            </div>
+                            <!-- automatizar futuramente esse campo para puxar todas as categorias do banco de dados. -->
+                            <div class="item">
+                                <label for="categoria">Categoria</label>
+                                <select name="categoria" id="categoria">
+                                    <option value="eletronicos">Eletrônicos</option>
+                                    <option value="roupas">Roupas</option>
+                                    <option value="alimentos">Alimentos</option>
+                                    <option value="moveis">Móveis</option>
+                                    <option value="brinquedos">Brinquedos</option>
+                                    <option value="decoracao">Decoração</option>
+                                    <option value="utensilios">Utensílios</option>
+                                    <option value="ferramentas">Ferramentas</option>
+                                    <option value="jardinagem">Jardinagem</option>
+                                    <option value="esporte">Esporte</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Cadastrar" class="buttonForm">
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Liva. Todos os direitos reservados</p>
+    </footer>
+</body>
 
-// Verifica se existe
-if (file_exists($controllerFile)) {
-    require $controllerFile;
-    $controllerObj = new $controllerName();
-
-    if (method_exists($controllerObj, $action)) {
-        $controllerObj->$action();
-    } else {
-        echo "Ação '$action' não encontrada no controller '$controllerName'";
-    }
-} else {
-    echo "Controller '$controllerName' não encontrado!";
-}
+</html>
