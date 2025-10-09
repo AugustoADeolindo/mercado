@@ -54,17 +54,17 @@
                             <div class="item">
                                 <label for="categoria">Categoria</label>
                                 <select name="categoria" id="categoria">
-                                    <option value="eletronicos">Eletrônicos</option>
-                                    <option value="roupas">Roupas</option>
-                                    <option value="alimentos">Alimentos</option>
-                                    <option value="moveis">Móveis</option>
-                                    <option value="brinquedos">Brinquedos</option>
-                                    <option value="decoracao">Decoração</option>
-                                    <option value="utensilios">Utensílios</option>
-                                    <option value="ferramentas">Ferramentas</option>
-                                    <option value="jardinagem">Jardinagem</option>
-                                    <option value="esporte">Esporte</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="1">Eletrônicos</option>
+                                    <option value="2">Roupas</option>
+                                    <option value="3">Alimentos</option>
+                                    <option value="4">Móveis</option>
+                                    <option value="5">Brinquedos</option>
+                                    <option value="6">Decoração</option>
+                                    <option value="7">Utensílios</option>
+                                    <option value="8">Ferramentas</option>
+                                    <option value="9">Jardinagem</option>
+                                    <option value="10">Esporte</option>
+                                    <option value="11">Outros</option>
                                 </select>
                             </div>
                         </div>

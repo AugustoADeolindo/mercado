@@ -1,6 +1,6 @@
 <?php
 
-const DB_HOST = 'localhost:3307';
+const DB_HOST = 'localhost:3308';
 const DB_NAME = 'mercado';
 const DB_USER = 'root';
 const DB_PASS = '123';
